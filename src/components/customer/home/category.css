@@ -1,0 +1,32 @@
+
+.shop-by-category {
+    background-color: #edeaea;
+    font-size: 2.5rem;
+    font-family: Montserrat;
+    color: gray;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0;
+    box-shadow: 5px 5px #d4d2d2;
+}
+
+.category-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-family: Montserrat;
+}
+
+.category-icon-box {
+    margin-bottom: 2rem;
+}
+
+.category-icon {
+    width: 10rem;
+    filter: grayscale(1);
+}
+

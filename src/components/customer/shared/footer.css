@@ -1,0 +1,26 @@
+.footer-box {
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+.footer-box-item {
+    display: flex;
+}
+
+.footer-item {
+    margin-right: 1.3rem;
+}
+
+.footer-box-brand {
+    display: flex;
+}
+
+.footer-brand {
+    font-weight: 700;
+    margin-right: .2rem;
+}
+

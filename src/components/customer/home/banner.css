@@ -1,0 +1,14 @@
+
+.banner-title {
+    font-size: 2.5rem;
+    font-family: Montserrat;
+}
+
+.banner-description {
+    font-size: 1.1rem;
+    font-family: Montserrat;
+}
+
+img {
+    width: 100%;
+}

@@ -1,0 +1,33 @@
+
+.browse-products {
+    background-color: #edeaea;
+    font-size: 2.5rem;
+    font-family: Montserrat;
+    color: gray;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0;
+    box-shadow: 5px 5px #d4d2d2;
+}
+
+.product-image {
+    object-fit: cover;
+    height: 20rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-family: Montserrat;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-family: Montserrat;
+    font-weight: 600;
+}
+
+.product-card-icon {
+    font-size: 1.5rem;
+    color:gray;
+}
+
