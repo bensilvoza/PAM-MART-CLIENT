@@ -1,14 +1,21 @@
 // libraries
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Input } from "baseui/input";
 import { Button, KIND } from "baseui/button";
+
+// contexts
+import { NotificationContext } from "../../../contexts/customer/shared/notificationContext";
 
 // components
 import Spacer from "../shared/spacer";
 
 function Form() {
   const navigate = useNavigate();
+
+  // contexts
+  var { handleInformation } = useContext(NotificationContext);
 
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -17,9 +24,41 @@ function Form() {
     return navigate("/register");
   }
 
-  function handleSubmitForm(e) {
+  async function handleSubmitForm(e) {
     e.preventDefault();
-    // ...
+
+    // communicate to server
+    let response = await axios.post("http://localhost:5000/login", {
+      email,
+      password,
+    });
+
+    if (response.data.message === "ERROR") {
+      handleInformation("Incorrect credential", "darkred", "1px solid darkred");
+
+      setTimeout(function () {
+        handleInformation(undefined, undefined, undefined);
+        return;
+      }, 10000);
+
+      return;
+    } else {
+      // customer logged in successfully
+
+      // save JWT to localStorage
+      localStorage.setItem(
+        "jwt",
+        JSON.stringify(`Bearer ${response["data"]["token"]}`)
+      );
+
+      // save customer to localStorage
+      localStorage.setItem(
+        "customer",
+        JSON.stringify(response["data"]["customer"])
+      );
+
+      return navigate("/");
+    }
   }
 
   return (

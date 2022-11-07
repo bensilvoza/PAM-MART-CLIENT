@@ -1,0 +1,114 @@
+.product-information-image {
+    object-fit: cover;
+    height: 30rem;
+}
+
+.product-name {
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.product-information-price {
+    font-size: 1.1rem;
+    font-family: Montserrat;
+}
+
+.color-section {
+    margin: 0;
+    font-family: Montserrat;
+}
+
+.color-box {
+    display: flex;
+}
+
+.color-item {
+    border: 2px solid gray;
+    border-radius: 1rem;
+    padding: .5rem 1rem .5rem;
+    margin-top: 0;
+    margin-right: .5rem;
+    font-family: Montserrat;
+}
+
+.size-section {
+    margin: 0;
+    font-family: Montserrat;
+}
+
+.size-box {
+    display: flex;
+}
+
+.size-item {
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: .5rem 1rem .5rem;
+    margin-top: 0;
+    margin-right: .5rem;
+    font-family: Montserrat;
+    background-color: black;
+    color: white;
+}
+
+.shipping-info {
+    font-family: Montserrat;
+    font-style: italic;
+    margin-bottom: 0;
+    color: gray;
+}
+
+.shipping-message {
+    font-family: Montserrat;
+    color: gray;
+    margin-top: 0;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    font-family: Montserrat;
+}
+
+.product-quantity-header {
+    font-family: Montserrat;
+    margin-top: 4rem;
+}
+
+.quantity-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-changer {
+    display: flex;
+    align-items: center;
+}
+
+.dash-icon {
+    font-size: 1.5rem;
+    margin: 0;
+    color: gray;
+    cursor: pointer;
+}
+
+.quantity {
+    font-size: 2rem;
+    font-family: Montserrat;
+    margin: 0;
+}
+
+.plus-icon {
+    font-size: 1.5rem;
+    margin: 0;
+    color: gray;
+    cursor: pointer;
+}
+
+.total {
+    font-size: 2rem;
+    font-family: Montserrat;
+    margin: 0;
+}
+

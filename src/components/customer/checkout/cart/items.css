@@ -1,0 +1,47 @@
+
+.cart-header {
+    font-family: Montserrat;
+}
+
+.cart-items-hr {
+    height: .2rem;
+    background-color: gray;
+}
+
+.cart-items-title {
+    font-family: Montserrat;
+    font-weight: 900;
+    color: gray;
+}
+
+.cart-items-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items-image {
+    object-fit: cover;
+    width: 20rem;
+    height: 20rem;
+}
+
+.cart-items-item {
+    font-family: Montserrat;
+}
+
+.cart-items-total-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items-total {
+    font-family: Montserrat;
+    font-size: 2rem;
+    color: gray;
+}
+
+.cart-items-total-amount {
+    font-family: Montserrat;
+    font-size: 2rem;
+}
+

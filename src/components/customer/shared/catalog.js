@@ -1,5 +1,6 @@
 // libraries
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Cell } from "baseui/layout-grid";
 
@@ -10,7 +11,13 @@ import Spacer from "../shared/spacer";
 import "./catalog.css";
 
 function Catalog() {
+  const navigate = useNavigate();
+
   let [products, setProducts] = useState([]);
+
+  function handleClickProduct(id) {
+    return navigate("/product/" + id);
+  }
 
   useEffect(function () {
     async function getProducts() {
@@ -27,15 +34,23 @@ function Catalog() {
   return (
     <>
       <Cell span={12}>
-        <Spacer height="4rem" />
         <p className="browse-products">Browse products</p>
         <Spacer height="1rem" />
       </Cell>
 
       {products.map((product, index) => (
         <Cell key={product["id"]} span={4}>
-          <div>
-            <img className="product-image" src={product["image"]} />
+          <div
+            className="card"
+            onClick={function () {
+              handleClickProduct(product["id"]);
+            }}
+          >
+            <img
+              className="product-image"
+              src={product["image"]}
+              alt={product["name"]}
+            />
             <p className="product-name">{product["name"]}</p>
             <p className="product-price">₱{product["price"]}.00</p>
             <span>

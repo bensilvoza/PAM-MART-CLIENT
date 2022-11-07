@@ -12,6 +12,7 @@
     font-family: Montserrat;
     font-size: 1.5rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .nav-item {
@@ -19,4 +20,6 @@
     font-size: 1.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    cursor: pointer;
 }
+
