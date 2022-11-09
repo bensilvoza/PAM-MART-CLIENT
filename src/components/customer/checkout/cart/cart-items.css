@@ -1,0 +1,9 @@
+.cart-items-image {
+    object-fit: cover;
+    width: 20rem;
+    height: 20rem;
+}
+
+.cart-items-item {
+    font-family: Montserrat;
+}

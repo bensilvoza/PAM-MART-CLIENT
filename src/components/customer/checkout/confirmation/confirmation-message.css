@@ -1,0 +1,11 @@
+.confirmation-message-header {
+    margin-top: 6rem;
+    font-family: Montserrat;
+    text-align: center;
+}
+
+.confirmation-message-continue-shopping {
+    display: flex;
+    justify-content: center;
+}
+

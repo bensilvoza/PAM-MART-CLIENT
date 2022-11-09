@@ -1,0 +1,13 @@
+.payment-header {
+    font-family: Montserrat;
+}
+
+.payment-options {
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+

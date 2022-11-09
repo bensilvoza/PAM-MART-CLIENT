@@ -1,0 +1,14 @@
+.checkout-indicator-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-indicator {
+    font-family: Montserrat;
+    color: gray;
+}
+
+.checkout-indicator-icon {
+    color: gray;
+}

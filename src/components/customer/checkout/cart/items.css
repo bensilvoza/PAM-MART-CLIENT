@@ -1,5 +1,5 @@
 
-.cart-header {
+.cart-items-header {
     font-family: Montserrat;
 }
 
@@ -8,25 +8,9 @@
     background-color: gray;
 }
 
-.cart-items-title {
-    font-family: Montserrat;
-    font-weight: 900;
-    color: gray;
-}
-
 .cart-items-box {
     display: flex;
     justify-content: space-between;
-}
-
-.cart-items-image {
-    object-fit: cover;
-    width: 20rem;
-    height: 20rem;
-}
-
-.cart-items-item {
-    font-family: Montserrat;
 }
 
 .cart-items-total-box {
@@ -38,10 +22,12 @@
     font-family: Montserrat;
     font-size: 2rem;
     color: gray;
+    margin: .5rem 0 .5rem 0;
 }
 
 .cart-items-total-amount {
     font-family: Montserrat;
     font-size: 2rem;
+    margin: .5rem 0 .5rem 0;
 }
 

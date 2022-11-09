@@ -1,0 +1,29 @@
+.summary-content-header {
+    font-family: Montserrat;
+}
+
+.summary-content-title {
+    font-family: Montserrat;
+    margin: 0;
+}
+
+.summary-content-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-content-item {
+    font-family: Montserrat;
+    margin: 0;
+}
+
+.summary-content-item-box {
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat;
+}
+
+.summary-content-total {
+    margin: 0 0 1rem 0;
+}
+
