@@ -37,11 +37,26 @@ function PaymentOptions() {
       return;
     }
 
+    // pull up data from localStorage
+    let orders = JSON.parse(localStorage.getItem("orders"));
+    let customer = JSON.parse(localStorage.getItem("customer"));
+    let address = JSON.parse(localStorage.getItem("address"));
+
+    let summary = {
+      name: customer["name"],
+      orders: orders,
+      address: address,
+      channel: channel, // payment channel
+    };
+
+    // save order summary to localStorage
+    localStorage.setItem("summary", JSON.stringify(summary));
+
+    // payment channel section
+
     if (channel === "cod") {
       return navigate("/confirmation");
     }
-
-    // communicate to server
 
     // paypal channel
     if (channel === "paypal") {

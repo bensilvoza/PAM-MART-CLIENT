@@ -20,6 +20,16 @@ function Nav() {
     return navigate("/cart");
   }
 
+  function handleClickAccount() {
+    let isAuthenticated = JSON.parse(localStorage.getItem("customer"));
+
+    if (isAuthenticated === null) {
+      return navigate("/login");
+    } else {
+      return navigate("/account");
+    }
+  }
+
   return (
     <Grid>
       <Cell span={12}>
@@ -37,7 +47,9 @@ function Nav() {
               Cart
             </p>
             <p className="nav-item">Search</p>
-            <p className="nav-item">Account</p>
+            <p onClick={handleClickAccount} className="nav-item">
+              Account
+            </p>
           </div>
         </div>
       </Cell>

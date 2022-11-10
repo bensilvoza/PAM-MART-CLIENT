@@ -1,5 +1,7 @@
 // libraries
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Button } from "baseui/button";
 import { Cell } from "baseui/layout-grid";
 
@@ -15,6 +17,21 @@ function ConfirmationMessage() {
   async function handleClickContinueShopping(e) {
     return navigate("/");
   }
+
+  useEffect(function () {
+    async function saveSummaryToDb() {
+      let summary = JSON.parse(localStorage.getItem("summary"));
+
+      // communicate to server
+      let response = await axios.post("http://localhost:5000/order", summary);
+    }
+    // call
+    // saveSummaryToDb();
+
+    // continue here...
+
+    return;
+  }, []);
 
   return (
     <Cell span={6}>
