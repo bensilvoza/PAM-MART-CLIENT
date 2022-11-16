@@ -18,21 +18,6 @@ function ConfirmationMessage() {
     return navigate("/");
   }
 
-  useEffect(function () {
-    async function saveSummaryToDb() {
-      let summary = JSON.parse(localStorage.getItem("summary"));
-
-      // communicate to server
-      let response = await axios.post("http://localhost:5000/order", summary);
-    }
-    // call
-    // saveSummaryToDb();
-
-    // continue here...
-
-    return;
-  }, []);
-
   return (
     <Cell span={6}>
       <h1 className="confirmation-message-header">

@@ -12,10 +12,12 @@ import { NotificationContext } from "../../../contexts/customer/shared/notificat
 import Nav from "../../../components/customer/shared/nav";
 import Notification from "../../../components/customer/shared/notification";
 import ProductInformation from "../../../components/customer/product/productInformation";
+import Review from "../../../components/customer/product/review";
 import Footer from "../../../components/customer/shared/footer";
 
 // utils
 import gridJustifyContentCenter from "../../../utils/shared/gridJustifyContentCenter";
+import defaultProductData from "../../../utils/product/defaultProductData";
 
 function Product() {
   const { id } = useParams();
@@ -23,14 +25,25 @@ function Product() {
   // contexts
   let { message, color, border } = useContext(NotificationContext);
 
-  let [product, setProduct] = useState({});
+  let [product, setProduct] = useState(defaultProductData);
+  let [review, setReview] = useState([]);
 
   useEffect(function () {
     async function getProduct() {
       // communicate to server
-      let response = await axios.get("http://localhost:5000/product/" + id);
+      let responseProduct = await axios.get(
+        "http://localhost:5000/product/" + id
+      );
+      let responseReview = await axios.get(
+        "http://localhost:5000/product/review/" + id
+      );
 
-      setProduct(response.data.result);
+      setProduct(responseProduct.data.result);
+
+      if (responseReview.data.result !== null) {
+        setReview(responseReview.data.result.review);
+      }
+
       return;
     }
     // call
@@ -47,6 +60,10 @@ function Product() {
 
       <Grid overrides={gridJustifyContentCenter}>
         <ProductInformation data={product} />
+      </Grid>
+
+      <Grid>
+        <Review productData={product} reviewData={review} />
       </Grid>
 
       <div className="horizontal-line"></div>

@@ -9,6 +9,7 @@ import { NotificationContext } from "../../../../contexts/customer/shared/notifi
 
 // utils
 import paypal from "../../../../utils/checkout/payment/paypal";
+import saveSummaryToDb from "../../../../utils/checkout/payment/saveSummaryToDb";
 
 // css
 import "./payment.css";
@@ -52,13 +53,18 @@ function PaymentOptions() {
     // save order summary to localStorage
     localStorage.setItem("summary", JSON.stringify(summary));
 
+    // save summary to db
+    saveSummaryToDb();
+
+    // clear customer cart
+    localStorage.removeItem("orders");
+
     // payment channel section
 
     if (channel === "cod") {
       return navigate("/confirmation");
     }
 
-    // paypal channel
     if (channel === "paypal") {
       return await paypal();
     }

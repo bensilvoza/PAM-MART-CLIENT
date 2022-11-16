@@ -1,0 +1,36 @@
+.review-heading {
+    font-family: Montserrat;
+}
+
+.review-name {
+    margin-bottom: 0;
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
+.review-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Montserrat;
+}
+
+.like-box {
+    display: flex;
+    align-items: center;
+    font-family: Montserrat;
+    margin-top: 1rem;
+}
+
+.review-like-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.review-likes-count {
+    margin: 0 0 0 1rem;
+}
+
+.review-likers-name {
+    margin: 0 0 0 1rem;
+}
+

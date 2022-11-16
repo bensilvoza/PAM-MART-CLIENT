@@ -38,6 +38,7 @@ function ProductInformation(props) {
 
     let order = {
       id: props.data.id,
+      timeStampInSeconds: Math.floor(Date.now() / 1000),
       image: props.data.image,
       name: props.data.name,
       price: props.data.price,
