@@ -4,12 +4,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Input } from "baseui/input";
 import { Button, KIND } from "baseui/button";
+import { FormControl } from "baseui/form-control";
 
 // contexts
 import { NotificationContext } from "../../../contexts/customer/shared/notificationContext";
 
 // components
 import Spacer from "../shared/spacer";
+
+// css
+import "./form.css";
 
 function Form() {
   const navigate = useNavigate();
@@ -67,19 +71,21 @@ function Form() {
         value={email}
         type="email"
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="email"
+        placeholder="Enter email"
       />
 
-      <Spacer height="1rem" />
+      <Spacer height=".5rem" />
 
       <Input
         value={password}
         type="password"
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="password"
+        placeholder="Enter password"
       />
 
-      <Spacer height="1rem" />
+      <p className="login-form-forgot-password">Forgot your password?</p>
+
+      <Spacer height=".5rem" />
 
       <Button
         overrides={{

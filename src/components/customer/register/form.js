@@ -94,7 +94,7 @@ function Form() {
         value={name}
         type="text"
         onChange={(e) => setName(e.target.value)}
-        placeholder="name"
+        placeholder="Enter name"
       />
 
       <Spacer height="1rem" />
@@ -103,7 +103,7 @@ function Form() {
         value={email}
         type="email"
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="email"
+        placeholder="Enter email"
       />
 
       <Spacer height="1rem" />
@@ -112,7 +112,7 @@ function Form() {
         value={password}
         type="password"
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="password"
+        placeholder="Enter password"
       />
 
       <Spacer height="1rem" />
@@ -121,7 +121,7 @@ function Form() {
         value={confirmPassword}
         type="password"
         onChange={(e) => setConfirmPassword(e.target.value)}
-        placeholder="confirm password"
+        placeholder="Confirm password"
       />
 
       <Spacer height="1rem" />

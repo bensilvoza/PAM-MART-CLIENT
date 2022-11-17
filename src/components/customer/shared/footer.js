@@ -13,7 +13,7 @@ function Footer(props) {
       </div>
       <div className="footer-box-brand">
         <div>
-          <span className="footer-brand">© Pam mart. </span>
+          <span className="footer-brand">Pam mart. </span>
           All Rights Reserved.
         </div>
       </div>

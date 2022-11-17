@@ -50,6 +50,9 @@ function Review(props) {
   }
 
   async function handleClickReviewLikeData(reviewAuthor) {
+    // validation for logged in customer
+    if (customer === null) return;
+
     let reviewLikeData = {
       method: "addReviewLike",
       productId: props.productData.id,
@@ -144,7 +147,20 @@ function Review(props) {
     }
     // call
     checkIsReviewCreated();
+
+    return;
   });
+
+  useEffect(function () {
+    function scrollToTopOfPage() {
+      window.scrollTo(0, 0);
+      return;
+    }
+    // call
+    scrollToTopOfPage();
+
+    return;
+  }, []);
 
   return (
     <Cell span={8}>

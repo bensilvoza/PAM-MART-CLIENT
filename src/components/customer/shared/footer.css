@@ -9,6 +9,7 @@
 
 .footer-box-item {
     display: flex;
+    align-items: flex-end;
 }
 
 .footer-item {
@@ -20,6 +21,7 @@
 }
 
 .footer-brand {
+    font-size: 2rem;
     font-weight: 700;
     margin-right: .2rem;
 }

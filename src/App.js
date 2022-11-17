@@ -16,6 +16,7 @@ import Shipping from "./pages/customer/checkout/shipping";
 import Summary from "./pages/customer/checkout/summary";
 import Payment from "./pages/customer/checkout/payment";
 import Confirmation from "./pages/customer/checkout/confirmation";
+import Account from "./pages/customer/account";
 // administrator
 import ProductCreate from "./pages/administrator/product/create";
 
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/summary" element={<Summary />} />
             <Route exact path="/payment" element={<Payment />} />
             <Route exact path="/confirmation" element={<Confirmation />} />
+            <Route exact path="/account" element={<Account />} />
             <Route
               exact
               path="/administrator/product/create"

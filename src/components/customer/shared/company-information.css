@@ -1,0 +1,10 @@
+.company-information-box {
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat;
+}
+
+.company-information-header {
+    font-weight: 700;
+}
+
