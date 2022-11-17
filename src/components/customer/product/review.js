@@ -113,43 +113,37 @@ function Review(props) {
     return;
   }
 
-  useEffect(function () {
-    function populateReviewData() {
-      // code short-circuitting
-      if (reviewData.length > 0) return;
+  useEffect(
+    function () {
+      function populateReviewData() {
+        handleIndicesOfLikedReview(props.reviewData);
 
-      handleIndicesOfLikedReview(props.reviewData);
-
-      setReviewData(props.reviewData);
-      return;
-    }
-    // call
-    populateReviewData();
-
-    function checkIsReviewCreated() {
-      // code short-circuitting
-      if (isReviewCreated === true) return;
-
-      // code short-circuitting
-      if (customer === null) {
-        setIsReviewCreated(false);
+        setReviewData(props.reviewData);
         return;
       }
+      // call
+      populateReviewData();
 
-      for (let desc of reviewData) {
-        if (desc.name === customer.name) {
-          setIsReviewCreated(true);
-          break;
+      function checkIsReviewCreated() {
+        // code short-circuitting
+        if (isReviewCreated === true) return;
+
+        for (let desc of reviewData) {
+          if (desc.name === customer.name) {
+            setIsReviewCreated(true);
+            break;
+          }
         }
+
+        return;
       }
+      // call
+      checkIsReviewCreated();
 
       return;
-    }
-    // call
-    checkIsReviewCreated();
-
-    return;
-  });
+    },
+    [props.reviewData]
+  );
 
   useEffect(function () {
     function scrollToTopOfPage() {
@@ -161,6 +155,18 @@ function Review(props) {
 
     return;
   }, []);
+
+  useEffect(function () {
+    function checkRender() {
+      console.log("Props");
+      console.log(props);
+      return;
+    }
+    // call
+    checkRender();
+
+    return;
+  });
 
   return (
     <Cell span={8}>
