@@ -8,6 +8,26 @@
     font-weight: 700;
 }
 
+.review-name-edit-delete-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-edit-delete-box {
+    display: flex;
+    align-items: flex-end;
+    color: gray;
+}
+
+.review-edit-box {
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+.review-delete-box {
+    cursor: pointer;
+}
+
 .review-description {
     margin-top: 0;
     margin-bottom: 0;

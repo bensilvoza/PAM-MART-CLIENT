@@ -12,7 +12,7 @@ function CompanyInformation() {
         <p>The Paint Studio</p>
         <p>Store Directory</p>
         <p>Gift Cards</p>
-        <p>Ace Coupons</p>
+        <p>Pam mart Coupons</p>
       </div>
       <div>
         <p className="company-information-header">Customer Service</p>
@@ -29,7 +29,7 @@ function CompanyInformation() {
         <p>Community Involvement</p>
         <p>Careers</p>
         <p>Affiliate Program</p>
-        <p>Own an Ace Store</p>
+        <p>Own a Pam mart</p>
         <p>Heartware Stories</p>
         <p>Become A Vendor</p>
       </div>
@@ -41,7 +41,7 @@ function CompanyInformation() {
         <p>Newsroom</p>
         <p>Neighborhood News</p>
         <p>Annual Report</p>
-        <p>Ace Handyman Services</p>
+        <p>Pam mart Services</p>
       </div>
     </div>
   );

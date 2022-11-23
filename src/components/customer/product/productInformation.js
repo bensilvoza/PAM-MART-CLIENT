@@ -78,7 +78,11 @@ function ProductInformation(props) {
       </Cell>
 
       <Cell span={6}>
-        <img className="product-information-image" src={props.data.image} />
+        <img
+          className="product-information-image"
+          src={props.data.image}
+          alt={props.data.name}
+        />
       </Cell>
 
       <Cell span={6}>

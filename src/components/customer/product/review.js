@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Cell } from "baseui/layout-grid";
 import { Input } from "baseui/input";
+import { Textarea } from "baseui/textarea";
+import { SIZE } from "baseui/input";
 
 // contexts
 import { NotificationContext } from "../../../contexts/customer/shared/notificationContext";
@@ -21,6 +23,8 @@ function Review(props) {
   let [description, setDescription] = useState("");
   let [isReviewCreated, setIsReviewCreated] = useState(false);
   let [indicesOfLikedReview, setIndicesOfLikedReview] = useState([]);
+  let [currentHoverReviewBox, setCurrentHoverReviewBox] = useState(null);
+  let [isEditReview, setIsEditReview] = useState(false);
   let customer = JSON.parse(localStorage.getItem("customer"));
 
   function handleIndicesOfLikedReview(reviewData) {
@@ -74,6 +78,77 @@ function Review(props) {
     return;
   }
 
+  function handleCurrentHoverReviewBox(id) {
+    setCurrentHoverReviewBox(id);
+  }
+
+  function handleClickToggleEditReview(desc) {
+    if (isEditReview === false) {
+      setDescription(desc);
+      setIsEditReview(true);
+    } else {
+      setIsEditReview(false);
+    }
+
+    return;
+  }
+
+  function handleEditReview(e) {
+    // press enter or keyCode 13 to submit input data
+    if (e.keyCode !== 13) return;
+
+    // create a deep copy of reviewData
+    let reviewDataCopy = JSON.parse(JSON.stringify(reviewData));
+    for (let i = 0; i < reviewDataCopy.length; i++) {
+      if (reviewDataCopy[i]["name"] === customer["name"]) {
+        reviewDataCopy[i]["description"] = description;
+        break;
+      }
+    }
+
+    setReviewData(reviewDataCopy);
+    setDescription("");
+    setIsEditReview(false);
+
+    // review information
+    let information = {
+      method: "editReview",
+      productId: props.productData.id,
+      review: reviewDataCopy,
+    };
+
+    // communicate to server
+    axios.post("http://localhost:5000/product/review", information);
+
+    return;
+  }
+
+  function handleDeleteReview() {
+    // create a deep copy of reviewData
+    let reviewDataCopy = JSON.parse(JSON.stringify(reviewData));
+    for (let i = 0; i < reviewDataCopy.length; i++) {
+      if (reviewDataCopy[i]["name"] === customer["name"]) {
+        reviewDataCopy.splice(i, 1);
+        break;
+      }
+    }
+
+    setIsReviewCreated(false);
+    setReviewData(reviewDataCopy);
+
+    // review information
+    let information = {
+      method: "deleteReview",
+      productId: props.productData.id,
+      review: reviewDataCopy,
+    };
+
+    // communicate to server
+    axios.post("http://localhost:5000/product/review", information);
+
+    return;
+  }
+
   async function handleSubmitForm(e) {
     e.preventDefault();
 
@@ -107,6 +182,9 @@ function Review(props) {
     );
 
     if (response.data.message === "OK") {
+      setDescription("");
+      setIsReviewCreated(true);
+
       setReviewData(response["data"]["result"]["review"]);
     }
 
@@ -156,18 +234,6 @@ function Review(props) {
     return;
   }, []);
 
-  useEffect(function () {
-    function checkRender() {
-      console.log("Props");
-      console.log(props);
-      return;
-    }
-    // call
-    checkRender();
-
-    return;
-  });
-
   return (
     <Cell span={8}>
       <Spacer height="4rem" />
@@ -187,9 +253,49 @@ function Review(props) {
       )}
 
       {reviewData.map((r, index) => (
-        <div>
-          <p className="review-name">{r.name}</p>
-          <p className="review-description">{r.description}</p>
+        <div
+          onMouseEnter={function () {
+            handleCurrentHoverReviewBox(r["name"]);
+          }}
+          onMouseLeave={function () {
+            setCurrentHoverReviewBox(null);
+          }}
+        >
+          <div className="review-name-edit-delete-box">
+            <p className="review-name">{r.name}</p>
+            {customer !== null &&
+              r["name"] === customer["name"] &&
+              currentHoverReviewBox === r["name"] && (
+                <div className="review-edit-delete-box">
+                  <span
+                    className="review-edit-box"
+                    onClick={function () {
+                      handleClickToggleEditReview(r["description"]);
+                    }}
+                  >
+                    <i className="bi bi-pen" style={{ margin: "0" }}></i>
+                  </span>
+                  <span
+                    className="review-delete-box"
+                    onClick={handleDeleteReview}
+                  >
+                    <i className="bi bi-trash" style={{ margin: "0" }}></i>
+                  </span>
+                </div>
+              )}
+          </div>
+
+          {isEditReview === true && r["name"] === customer["name"] ? (
+            <Textarea
+              onKeyDown={(e) => handleEditReview(e)}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              size={SIZE.large}
+            />
+          ) : (
+            <p className="review-description">{r.description}</p>
+          )}
+
           <div className="like-box">
             <span
               className="review-like-icon"

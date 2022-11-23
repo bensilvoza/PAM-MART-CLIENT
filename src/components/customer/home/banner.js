@@ -26,7 +26,10 @@ function Banner() {
       </Cell>
 
       <Cell span={6}>
-        <img src="https://www.ikea.com/ext/ingkadam/m/62d66e4bd7e8dfc0/original/PH187667.jpg?f=xl" />
+        <img
+          className="homepage-banner-img"
+          src="https://www.ikea.com/ext/ingkadam/m/62d66e4bd7e8dfc0/original/PH187667.jpg?f=xl"
+        />
       </Cell>
     </>
   );

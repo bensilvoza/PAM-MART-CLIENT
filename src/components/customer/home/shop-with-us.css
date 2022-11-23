@@ -1,0 +1,23 @@
+.shop-with-us-message-box {
+    height: 18.1rem;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+}
+
+.shop-with-us-title {
+    font-size: 2.5rem;
+    font-family: Montserrat;
+}
+
+.shop-with-us-description {
+    font-size: 1.1rem;
+    font-family: Montserrat;
+}
+
+.shop-with-us-img {
+    object-fit: cover;
+    width: 100%;
+    height: 20rem;
+}
+
